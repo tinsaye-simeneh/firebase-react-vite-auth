@@ -1,8 +1,7 @@
 import react, { useState } from "react";
-import reactDOM from "react-dom/client";
 import { Form, Card, Button, Container } from "react-bootstrap";
 
-const Signup = () => {
+const Login = () => {
   const [data, setData] = useState({});
 
   const handleChanage = (event) => {
@@ -40,29 +39,19 @@ const Signup = () => {
             required
           />
         </Form.Group>
-        <Form.Group controlId="formBasicConfirmPassword" className="mt-4">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            onChange={(event) => handleChanage(event)}
-            required
-          />
-        </Form.Group>
         <Button variant="primary" type="submit" className="w-100 mt-4">
-          Submit
+          Login
         </Button>
       </Form>
 
       <p className="mt-4">
-        Already have an account?{" "}
-        <a href="/login" className="text-decoration-none">
-          Log In
+        Don't have an account?{" "}
+        <a href="/signup" className="text-decoration-none">
+          Create an Account
         </a>
       </p>
     </>
   );
 };
 
-export default Signup;
+export default Login;
