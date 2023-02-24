@@ -1,5 +1,6 @@
 import react, { useState } from "react";
 import { Form, Card, Button } from "react-bootstrap";
+import { app } from "../firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {

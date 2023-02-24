@@ -1,8 +1,11 @@
 import react, { useState } from "react";
-import { Form, Card, Button, Container } from "react-bootstrap";
-import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import { Form, Card, Button } from "react-bootstrap";
+import { app } from "../firebaseConfig";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  let auth = getAuth();
+
   const [data, setData] = useState({});
 
   const handleChanage = (event) => {
@@ -29,10 +32,10 @@ const Login = () => {
     <>
       <Card className="p-2 mt-5 border-0">
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+          <h2 className="text-center mb-4">Login</h2>
         </Card.Body>
       </Card>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
