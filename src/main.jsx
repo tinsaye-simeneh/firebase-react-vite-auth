@@ -1,8 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Signup from "./components/signup";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const Main = () => {
+  return (
+    <div>
+      <Signup />
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    test
-  </React.StrictMode>,
-)
+    <Main />
+  </React.StrictMode>
+);
