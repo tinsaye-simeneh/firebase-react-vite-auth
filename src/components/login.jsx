@@ -1,5 +1,6 @@
 import react, { useState } from "react";
 import { Form, Card, Button, Container } from "react-bootstrap";
+import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 
 const Login = () => {
   const [data, setData] = useState({});
@@ -7,6 +8,22 @@ const Login = () => {
   const handleChanage = (event) => {
     setData({ ...data, ...{ [event.target.name]: event.target.value } });
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(auth, data.email, data.password)
+    .then((userCredential) => {
+       console.log(userCredential);
+       alert("You'r successfully Loggedin");
+       window.location.href = "/home";
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Invalid Email or Password");
+        console.log(errorCode, errorMessage);
+    });
+}
 
   return (
     <>

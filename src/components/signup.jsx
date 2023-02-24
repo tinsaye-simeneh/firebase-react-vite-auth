@@ -1,32 +1,32 @@
 import react, { useState } from "react";
 import { Form, Card, Button } from "react-bootstrap";
-import { app } from "../firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
-    let auth = getAuth();
-    
+  let auth = getAuth();
+
   const [data, setData] = useState({});
 
   const handleChanage = (event) => {
     setData({ ...data, ...{ [event.target.name]: event.target.value } });
   };
 
-    const handleSubmit = (event) => {
-        if(data.password === data.confirmPassword){
-        event.preventDefault();
-        createUserWithEmailAndPassword(auth, data.email, data.password)
+  const handleSubmit = (event) => {
+    if (data.password === data.confirmPassword) {
+      event.preventDefault();
+      createUserWithEmailAndPassword(auth, data.email, data.password)
         .then((userCredential) => {
-           console.log(userCredential);
-           window.location.href = "/home";
+          console.log(userCredential);
+          alert("You're successfully Registered");
+          window.location.href = "/home";
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
         });
     }
-    }
+  };
 
   return (
     <>
