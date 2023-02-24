@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Signup from "./components/signup";
 import Login from "./components/login";
+import Home from "./components/home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 
 const Main = () => {
   return (
@@ -16,6 +18,7 @@ const Main = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </div>
